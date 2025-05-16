@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import { useAuth } from "../context/AuthProvider"; // Importa el hook useAuth
+import { useAuth } from "../../../context/AuthProvider"; // Importa el hook useAuth
 
-export default function LawyerScreen(): JSX.Element {
+export default function UserScreen(): JSX.Element {
   const { user } = useAuth(); // Obtén el usuario autenticado
   const params = useLocalSearchParams(); // Obtén los parámetros de la ruta
 

@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Platform } from "react-native";
 import { useRouter } from "expo-router";
 import MapView, { Marker } from "react-native-maps";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 type Country = {
@@ -23,7 +23,7 @@ const COUNTRIES: Country[] = [
 export default function Page(): JSX.Element {
   return (
     <View style={styles.container}>
-      <Header />
+      {/* <Header /> */}
       <CountryMap />
       <Footer />
     </View>

@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import { useAuth } from "../context/AuthProvider"; // Importa el hook useAuth
+import { useAuth } from "../../../context/AuthProvider"; // Importa el hook useAuth
 
-export default function DoctorScreen(): JSX.Element {
+export default function LawyerScreen(): JSX.Element {
   const { user } = useAuth(); // Obtén el usuario autenticado
   const params = useLocalSearchParams(); // Obtén los parámetros de la ruta
 
@@ -12,7 +12,7 @@ export default function DoctorScreen(): JSX.Element {
 
   return (
     <View className="flex-1 justify-center items-center bg-gray-100">
-      <Text className="text-2xl font-bold">Doctor Dashboard</Text>
+      <Text className="text-2xl font-bold">Lawyer Dashboard</Text>
       <Text className="mt-4 text-lg">Welcome, {userData.fullName}!</Text>
       <Text className="mt-2 text-gray-600">
         Specialty: {userData.specialty}
@@ -21,6 +21,9 @@ export default function DoctorScreen(): JSX.Element {
         Experience: {userData.experience}
       </Text>
       <Text className="mt-2 text-gray-600">Location: {userData.location}</Text>
+      <Text className="mt-2 text-gray-600">
+        Selected Country: {userData.selectedCountry}
+      </Text>
     </View>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { View, TextInput, Text, Button } from "react-native";
-import { useAuth } from "../../context/AuthProvider"; // Importa el hook correctamente
+import { useAuth } from "../../../context/AuthProvider"; // Importa el hook correctamente
 
 export default function LoginScreen(): JSX.Element {
   const [email, setEmail] = useState<string>("");
@@ -14,18 +14,18 @@ export default function LoginScreen(): JSX.Element {
   }>();
 
   const handleLogin = async (): Promise<void> => {
-    await login(email, password); // Asegurar que el login se complete antes de redirigir
-
+    await login(email, password); // Espera que el login se complete
+  
     // Redirige según el rol del usuario
     if (email === "lawyer@example.com") {
-      router.push("/lawyer");
+      router.push("/aplication/lawyer");
     } else if (email === "doctor@example.com") {
-      router.push("/doctor");
+      router.push("/aplication/doctor");
     } else {
-      router.push("auth/profile");
+      router.push("/aplication/user");
     }
   };
-
+  
   return (
     <View className="flex-1 justify-center p-5 bg-gray-100">
       <Text className="text-2xl font-bold text-center mb-5">Login</Text>

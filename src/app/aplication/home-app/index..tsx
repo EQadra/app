@@ -58,7 +58,7 @@ const Header: React.FC = () => {
         <View className="absolute top-full left-0 w-full bg-white shadow-md p-4 border border-gray-200">
           {["Inicio", "Categorías", "Ofertas", "Contacto"].map(
             (item, index) => (
-              <TouchableOpacity
+              <TouchableOpacity 
                 key={index}
                 className="py-2 border-b border-gray-300"
                 onPress={() => setMenuOpen(false)}
