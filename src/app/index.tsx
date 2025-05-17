@@ -25,7 +25,6 @@ export default function Page(): JSX.Element {
     <View style={styles.container}>
       {/* <Header /> */}
       <CountryMap />
-      <Footer />
     </View>
   );
 }

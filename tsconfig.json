@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "jsx": "react-native", // o "react-jsx" si usas React 17+
+    "types": ["react", "react-native"],
     "baseUrl": ".",
     "paths": {
       "@/*": [
