@@ -4,18 +4,39 @@ import { Stack } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 import { AuthProvider } from "../context/AuthProvider"; // Importa el AuthProvider
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Footer from "./components/Footer";
 
 export default function RootLayout(): JSX.Element {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <AuthProvider>
-        {" "}
-        {/* Envuelve toda la aplicación con el AuthProvider */}
-        <View style={styles.container}>
-     
-
+  <GestureHandlerRootView style={{ flex: 1 }}>
+    <AuthProvider>
+      {" "}
+      {/* Envuelve toda la aplicación con el AuthProvider */}
+      <View style={styles.container}>    
           {/* Contenedor de las pantallas */}
-          <Stack>
+        <Stack>
+          {/* Rutas de detalles */}
+          {/*  */}
+            <Stack.Screen
+              name="lists/doctor"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="lists/lawyer"
+              options={{ headerShown: false }}
+            />
+              <Stack.Screen
+              name="lists/asociation"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="lists/store"
+              options={{ headerShown: false }}
+            />
+
+          {/*  */}
+          {/* Rutas de detalles */}
+          
             <Stack.Screen
               name="aplication/home-app"
               options={{ headerShown: false }}
@@ -32,8 +53,17 @@ export default function RootLayout(): JSX.Element {
               name="aplication/user"
               options={{ headerShown: false }}
             />
-            {/* Rutas de autenticación */}
-            {/* <Stack.Screen name="(auth)/#" options={{ headerShown: false }} /> */}
+              <Stack.Screen
+              name="aplication/asociation"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="aplication/store"
+              options={{ headerShown: false }}
+            />
+
+          {/* Rutas de autenticación */}
+          {/* <Stack.Screen name="(auth)/#" options={{ headerShown: false }} /> */}
 
             <Stack.Screen
               name="auth/profile"
@@ -52,15 +82,32 @@ export default function RootLayout(): JSX.Element {
               options={{ headerShown: false }}
             />
 
-          </Stack>
+            <Stack.Screen
+              name="auth/recovery-password"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="auth/login"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="auth/signup"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="auth/not-fond"
+              options={{ headerShown: false }}
+            />
+        </Stack>
 
           {/* Footer global */}
           <View style={styles.footer}>
-            <Text style={styles.footerText}>© 2023 Mi Aplicación</Text>
+                 <Footer />           
           </View>
+          {/* end footer */}
         </View>
-      </AuthProvider>
-    </GestureHandlerRootView>
+    </AuthProvider>
+  </GestureHandlerRootView>
   );
 }
 

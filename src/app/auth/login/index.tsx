@@ -14,24 +14,22 @@ export default function LoginScreen(): JSX.Element {
   }>();
 
   const handleLogin = async (): Promise<void> => {
-    await login(email, password); // Espera que el login se complete
-  
-    // Redirige según el rol del usuario
-    if (email === "lawyer@example.com") {
-      router.push("/aplication/lawyer");
-    } else if (email === "doctor@example.com") {
-      router.push("/aplication/doctor");
-    } else {
-      router.push("/aplication/user");
+    try {
+      await login(email, password); // Valida el login
+      router.push("/aplication/home-app"); // Redirige siempre a home-app
+    } catch (error) {
+      console.error("Error en login:", error);
+      // Puedes mostrar un mensaje si falla
     }
   };
+  
   
   return (
     <View className="flex-1 justify-center p-5 bg-gray-100">
       <Text className="text-2xl font-bold text-center mb-5">Login</Text>
 
       <TextInput
-        className="h-10 border border-gray-300 mb-4 px-3 rounded"
+        className="h-10 border border-gray-300 mb-4 px-3 py-2 rounded"
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
@@ -39,7 +37,7 @@ export default function LoginScreen(): JSX.Element {
         autoCapitalize="none"
       />
       <TextInput
-        className="h-10 border border-gray-300 mb-4 px-3 rounded"
+        className="h-10 border border-gray-300 mb-4 px-3 py-2 rounded"
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
