@@ -13,6 +13,9 @@ import {
 } from "react-native";
 import { Link } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
+
+const router = useRouter();
 
 interface NewsItem {
   id: number;
@@ -40,8 +43,12 @@ const Content: React.FC = () => {
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const iconRefs = useRef<(TouchableOpacity | null)[]>([]);
 
-  const items = ["ver detalle", "wsp personal", "formulario"];
-
+  const items = [
+    { label: "ver detalle", route: "aplication/lawyer" },
+    { label: "wsp personal" },
+    { label: "formulario" },
+  ];
+  
   const news: NewsItem[] = Array.from({ length: 4 }, (_, i) => ({
     id: i,
     title: `Noticia ${i + 1}`,
@@ -129,20 +136,25 @@ const Content: React.FC = () => {
                   },
                 ]}
               >
-                {items.map((option, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={styles.dropdownItem}
-                    onPress={() => {
-                      console.log(
-                        `Seleccionaste ${option} para categoría ${modalVisible}`
-                      );
-                      setModalVisible(null);
-                    }}
-                  >
-                    <Text style={styles.dropdownText}>{option}</Text>
-                  </TouchableOpacity>
-                ))}
+               // En el render del Modal:
+                  {items.map((option, index) => (
+                    <TouchableOpacity
+                      key={index}
+                      style={styles.dropdownItem}
+                      onPress={() => {
+                        if (option.route) {
+                          router.push(option.route);
+                        } else {
+                          console.log(
+                            `Seleccionaste ${option.label} para categoría ${modalVisible}`
+                          );
+                        }
+                        setModalVisible(null);
+                      }}
+                    >
+                      <Text style={styles.dropdownText}>{option.label}</Text>
+                    </TouchableOpacity>
+                  ))}
               </View>
             </TouchableOpacity>
           </Modal>
