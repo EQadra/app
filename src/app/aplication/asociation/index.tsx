@@ -7,6 +7,7 @@ import Grid from "../../components/Grid";
 import Tabs from "../../components/Tabs";
 import GridCarousel from "../../components/GridTab";
 import ProfessionalsTab from '../../components/ProfessionalsTab';
+
 // Imagen local de prueba
 const testImage = { uri: "https://picsum.photos/409/200" };
 

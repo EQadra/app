@@ -77,15 +77,7 @@ export default function RootLayout(): JSX.Element {
               name="auth/reset-password"
               options={{ headerShown: false }}
             />
-            <Stack.Screen
-              name="auth/verify-account"
-              options={{ headerShown: false }}
-            />
-
-            <Stack.Screen
-              name="auth/recovery-password"
-              options={{ headerShown: false }}
-            />
+           
             <Stack.Screen
               name="auth/login"
               options={{ headerShown: false }}
@@ -94,10 +86,7 @@ export default function RootLayout(): JSX.Element {
               name="auth/signup"
               options={{ headerShown: false }}
             />
-            <Stack.Screen
-              name="auth/not-fond"
-              options={{ headerShown: false }}
-            />
+         
         </Stack>
 
           {/* Footer global */}
